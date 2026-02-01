@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: grok2api
+    env: docker
+    region: singapore
+    plan: starter
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: STORAGE_MODE
+        value: file
+    disk:
+      name: grok2api-data
+      mountPath: /app/data
+      sizeGB: 5
